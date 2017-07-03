@@ -1,0 +1,32 @@
+settings:
+  filtered:
+    - n
+    - a
+    - v
+    - 不
+
+rules:
+  /n$:
+    successors:
+      "[^好]/a$":
+        score: 0.5
+      ^好/a$:
+        successors:
+          /a$:
+            score: 0.6
+      /r$:
+        successors:
+          /a$:
+            score: 0.6
+      /d$:
+        successors:
+          /a$:
+            score: 0.6
+          /d$:
+            successors:
+              /a$:
+                score: 0.7
+          /r$:
+            successors:
+              /a$:
+                score: 0.7

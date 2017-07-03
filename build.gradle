@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: "jacoco"
+apply plugin: "groovy"
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+
+jar {
+    baseName = 'com.zintow.zintow-text'
+    version = System.properties['version']
+}
+
+dependencies {
+    compile('org.ansj:ansj_seg:5.1.1')
+    compile('org.nlpcn:nlp-lang:1.7.1')
+    compile('org.yaml:snakeyaml:1.17')
+    compile('org.slf4j:slf4j-api:1.7.22')
+    compile('org.apache.commons:commons-csv:1.2')
+
+    testCompile('org.slf4j:slf4j-simple:1.7.22')
+    testCompile("org.codehaus.groovy:groovy-all:2.3.1")
+    testCompile('org.spockframework:spock-core:1.0-groovy-2.3')
+    testCompile('junit:junit:4.12')
+}
